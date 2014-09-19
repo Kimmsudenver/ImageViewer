@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane blendMode="DARKEN" prefHeight="543.0" prefWidth="671.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea layoutX="27.0" layoutY="237.0" prefHeight="164.0" prefWidth="615.0" />
+      <Button id="loadButton" fx:id="loadButton" alignment="CENTER" layoutX="27.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="578.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button id="saveButton" fx:id="saveButton" alignment="CENTER" layoutX="294.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Save" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="570.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Clear" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <StackPane layoutX="27.0" layoutY="43.0" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: #aaa; -fx-background-color: #ccc;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="236.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
+      <StackPane layoutX="443.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
+   </children>
+</AnchorPane>
