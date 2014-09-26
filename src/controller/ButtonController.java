@@ -1,5 +1,10 @@
 package controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,38 +13,102 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
 public class ButtonController implements javafx.fxml.Initializable {
+	@FXML
+	private Button img1Load, img2Load, img3Load;
+	@FXML
+	private Button img1Save, img2Save, img3Save;
+	@FXML
+	private Button img1Clear, img2Clear, Img3Clear;
+	@FXML
+	private ImageView img1, img2, img3;
+	@FXML
+	private TextArea textArea;
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(final URL arg0, final ResourceBundle arg1) {
+
+	}
+
+	/**
+	 * All Load buttons are associated with this method. This will call the load
+	 * method according to the id.
+	 *
+	 * @param e
+	 */
+	@FXML
+	public final void loadButton(final Event e) {
+		Button buttonClicked = (Button) e.getSource();
+		String id = buttonClicked.getId();
+		if (id.contains("img")) {
+			loadImage(id, e);
+		}
+		loadText();
+	}
+
+	/**
+	 * Load text from file for textArea. call textFileChooserConfiguration for
+	 * text format
+	 *
+	 */
+	private void loadText() {
+		final FileChooser fileChooser = new FileChooser();
+		textFileChooserConfiguration(fileChooser);
+		File file = fileChooser.showOpenDialog(null);
+		if (file != null) {
+			BufferedReader input;
+			try {
+				String text = "";
+				input = new BufferedReader(new FileReader(file));
+				String line = input.readLine();
+				while (line != null) {
+					text = text + line + "\n";
+					line = input.readLine();
+				}
+				System.out.println(text);
+				textArea.setText(text);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		}
+
+	}
+
+	/**
+	 * Format filter for fileChooser. choose editable text file only
+	 *
+	 * @param fileChooser
+	 */
+	private void textFileChooserConfiguration(FileChooser fileChooser) {
+		fileChooser.setTitle("Load Text File");
+		fileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("txt", "*.txt"),
+				new FileChooser.ExtensionFilter("Doc", "*.doc"),
+				new FileChooser.ExtensionFilter("Docx", "*.docx"),
+				new FileChooser.ExtensionFilter("rtf", "*.docx"),
+				new FileChooser.ExtensionFilter("pages", "*.pages"),
+				new FileChooser.ExtensionFilter("odt", "*.odt"));
+	}
+
+	private void loadImage(final String id, final Event e) {
 		// TODO Auto-generated method stub
 
 	}
+
 	@FXML
-	private Button img1Load,img2Load,img3Load;
-	@FXML
-	private Button img1Save,img2Save,img3Save;
-	@FXML
-	private Button img1Clear,img2Clear,Img3Clear;
-	@FXML
-	private ImageView img1,img2,img3;
-	@FXML
-	private TextArea textArea;
-	
-	
-	@FXML
-	public void loadButton(Event e) {
+	public void saveButton(final Event e) {
 
 	}
 
 	@FXML
-	public void saveButton(Event e) {
-
-	}
-
-	@FXML
-	public void clearButton(Event e) {
+	public void clearButton(final Event e) {
 
 	}
 

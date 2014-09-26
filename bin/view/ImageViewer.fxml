@@ -13,7 +13,7 @@
 
 <AnchorPane blendMode="DARKEN" prefHeight="543.0" prefWidth="675.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ButtonController">
    <children>
-      <TextArea layoutX="29.0" layoutY="285.0" prefHeight="164.0" prefWidth="615.0" />
+      <TextArea fx:id="textArea" layoutX="29.0" layoutY="285.0" prefHeight="164.0" prefWidth="615.0" />
       <Pane layoutX="39.0" layoutY="203.0">
          <children>
             <Button id="loadButton" fx:id="img1Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="122.0">
