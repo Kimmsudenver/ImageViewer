@@ -11,21 +11,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane blendMode="DARKEN" prefHeight="543.0" prefWidth="671.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane blendMode="DARKEN" prefHeight="543.0" prefWidth="675.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ButtonController">
    <children>
-      <TextArea layoutX="27.0" layoutY="237.0" prefHeight="164.0" prefWidth="615.0" />
-      <Button id="loadButton" fx:id="loadButton" alignment="CENTER" layoutX="27.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="578.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
-      <Button id="saveButton" fx:id="saveButton" alignment="CENTER" layoutX="294.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Save" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
-      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="570.0" layoutY="435.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="66.0" text="Clear" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
+      <TextArea layoutX="29.0" layoutY="285.0" prefHeight="164.0" prefWidth="615.0" />
+      <Pane layoutX="39.0" layoutY="203.0">
+         <children>
+            <Button id="loadButton" fx:id="img1Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="122.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="clearButton" fx:id="img1Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="saveButton" fx:id="img1Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
       <StackPane layoutX="27.0" layoutY="43.0" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: #aaa; -fx-background-color: #ccc;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
@@ -33,5 +40,62 @@
       </StackPane>
       <StackPane layoutX="236.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
       <StackPane layoutX="443.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
+      <Pane layoutX="248.0" layoutY="203.0">
+         <children>
+            <Button id="loadButton" fx:id="img2Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="clearButton" fx:id="img2Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="saveButton" fx:id="img2Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="455.0" layoutY="203.0">
+         <children>
+            <Button id="loadButton" fx:id="img3Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="clearButton" fx:id="img3Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="saveButton" fx:id="img3Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="99.0" layoutY="462.0" prefHeight="36.0" prefWidth="461.0">
+         <children>
+            <Button id="loadButton" fx:id="textLoad" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="clearButton" fx:id="textClear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="400.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button id="saveButton" fx:id="textSave" alignment="CENTER" focusTraversable="false" layoutX="194.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
