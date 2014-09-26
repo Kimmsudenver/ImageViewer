@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
 public class ButtonController implements javafx.fxml.Initializable {
@@ -21,7 +22,7 @@ public class ButtonController implements javafx.fxml.Initializable {
 	@FXML
 	private Button img1Save, img2Save, img3Save;
 	@FXML
-	private Button img1Clear, img2Clear, Img3Clear;
+	private Button img1Clear, img2Clear, Img3Clear, textClear;
 	@FXML
 	private ImageView img1, img2, img3;
 	@FXML
@@ -39,9 +40,10 @@ public class ButtonController implements javafx.fxml.Initializable {
 	 * @param e
 	 */
 	@FXML
-	public final void loadButton(final Event e) {
+	public final void loadButton(final MouseEvent e) {
 		Button buttonClicked = (Button) e.getSource();
 		String id = buttonClicked.getId();
+		System.out.println(id);
 		if (id.contains("img")) {
 			loadImage(id, e);
 		}
@@ -107,9 +109,36 @@ public class ButtonController implements javafx.fxml.Initializable {
 
 	}
 
+	/**
+	 * Perform clear for multiple button events.
+	 * Clear the node associate with button
+	 * @param e
+	 */
 	@FXML
-	public void clearButton(final Event e) {
+	public void clearButton(Event e) {
+		Button buttonClicked = (Button) e.getSource();
+		String id = buttonClicked.getId();		
+		switch (id) {
+		case "img1Clear": {
+			img1 = new ImageView();
+			break;
+		}
+		case "img2Clear": {
+			img2 = new ImageView();
+			break;
+		}
+		case "img3Clear": {
+			img3 = new ImageView();
+			break;
+		}
+		case "textClear": {
+			textArea.setText(null);
+			break;
+		}
+		default:
+			break;
 
+		}
 	}
 
 }

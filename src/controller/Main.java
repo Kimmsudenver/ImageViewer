@@ -26,7 +26,6 @@ public class Main extends Application {
 			rootLayout = loader.load();
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
-			// showImageViewer();
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

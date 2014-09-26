@@ -16,17 +16,17 @@
       <TextArea fx:id="textArea" layoutX="29.0" layoutY="285.0" prefHeight="164.0" prefWidth="615.0" />
       <Pane layoutX="39.0" layoutY="203.0">
          <children>
-            <Button id="loadButton" fx:id="img1Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="122.0">
+            <Button id="img1Load" fx:id="img1Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="122.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="clearButton" fx:id="img1Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+            <Button id="img1Clear" fx:id="img1Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onAction="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="saveButton" fx:id="img1Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+            <Button id="img1Save" fx:id="img1Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -42,17 +42,17 @@
       <StackPane layoutX="443.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
       <Pane layoutX="248.0" layoutY="203.0">
          <children>
-            <Button id="loadButton" fx:id="img2Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+            <Button id="img2Load" fx:id="img2Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="clearButton" fx:id="img2Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+            <Button id="img2Clear" fx:id="img2Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onAction="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="saveButton" fx:id="img2Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+            <Button id="img2Save" fx:id="img2Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -61,17 +61,17 @@
       </Pane>
       <Pane layoutX="455.0" layoutY="203.0">
          <children>
-            <Button id="loadButton" fx:id="img3Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+            <Button id="img3Load" fx:id="img3Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="clearButton" fx:id="img3Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+            <Button id="img3Clear" fx:id="img3Clear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="122.0" mnemonicParsing="false" onAction="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="saveButton" fx:id="img3Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+            <Button id="img3Save" fx:id="img3Save" alignment="CENTER" focusTraversable="false" layoutX="62.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -80,17 +80,17 @@
       </Pane>
       <Pane layoutX="99.0" layoutY="462.0" prefHeight="36.0" prefWidth="461.0">
          <children>
-            <Button id="loadButton" fx:id="textLoad" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
+            <Button id="textLoad" fx:id="textLoad" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="clearButton" fx:id="textClear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="400.0" mnemonicParsing="false" onMouseClicked="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
+            <Button id="textClear" fx:id="textClear" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="400.0" mnemonicParsing="false" onAction="#clearButton" prefHeight="36.0" prefWidth="55.0" text="Clear" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button id="saveButton" fx:id="textSave" alignment="CENTER" focusTraversable="false" layoutX="194.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
+            <Button id="textSave" fx:id="textSave" alignment="CENTER" focusTraversable="false" layoutX="194.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="36.0" prefWidth="55.0" text="Save" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
