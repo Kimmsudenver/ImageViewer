@@ -16,18 +16,43 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
+/**
+ *
+ * Buttons controller class. interact with window for all buttons, perform
+ * various functionality associated with buttons
+ *
+ * @author
+ * @author
+ * @author kim
+ *
+ */
+
 public class ButtonController implements javafx.fxml.Initializable {
+	/** Connect to Buttons for Load images in fxml file. */
 	@FXML
-	private Button img1Load, img2Load, img3Load;
+	private Button img1Load, img2Load, img3Load, textLoad;
+
+	/** Connect to Buttons for save images in fxml file. */
 	@FXML
-	private Button img1Save, img2Save, img3Save;
+	private Button img1Save, img2Save, img3Save, textSave;
+
+	/**
+	 * Connect to Buttons for clear images and text field in fxml file.
+	 * */
 	@FXML
 	private Button img1Clear, img2Clear, Img3Clear, textClear;
+
+	/** Connect to imageView in fxml file. */
 	@FXML
 	private ImageView img1, img2, img3;
+
+	/** Connect to text field in fxml file. */
 	@FXML
 	private TextArea textArea;
 
+	/**
+	 * Required method to initialize. the controller
+	 */
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
 
@@ -110,14 +135,15 @@ public class ButtonController implements javafx.fxml.Initializable {
 	}
 
 	/**
-	 * Perform clear for multiple button events.
-	 * Clear the node associate with button
+	 * Perform clear for multiple button events. Clear the node associate with
+	 * button
+	 *
 	 * @param e
 	 */
 	@FXML
 	public void clearButton(Event e) {
 		Button buttonClicked = (Button) e.getSource();
-		String id = buttonClicked.getId();		
+		String id = buttonClicked.getId();
 		switch (id) {
 		case "img1Clear": {
 			img1 = new ImageView();
