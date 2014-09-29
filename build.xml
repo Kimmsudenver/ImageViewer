@@ -1,0 +1,135 @@
+<project name="ImageViewer" default="all" basedir="."
+		xmlns:fx="javafx:com.sun.javafx.tools.ant">
+		
+	<!-- Additional Task Definitions -->
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml" 
+			uri="javafx:com.sun.javafx.tools.ant" 
+			classpath="lib/ant-javafx.jar"/>
+			
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="doc" location="doc"/>
+	<property name="build" location="build"/>
+	<property name="dist" location="dist"/>
+	<property name="test" location="test"/>
+	<property name="reports" location="${test}/reports"/>
+	<property name="lib" location="lib"/>
+	
+	<!-- Set name of project to be used in distributions -->
+	<property name="title" value="ImageViewer"/>
+				
+	<path id="classpath">
+		<fileset dir="${lib}" includes="**/*.jar"/>
+	</path>
+	
+	<target name="all" depends="clean, doc, report"/>
+	
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+		<!-- Ensure the ${lib} directory exists -->
+		<mkdir dir="${lib}"/>
+	</target>
+	
+	<target name="compile" depends="init" description="compile the source">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" classpathref="classpath"
+				includeantruntime="false" debug="true"
+				debuglevel="lines,vars,source"/>
+		<!-- Copy the files from ${src}/view to into ${build}/view -->
+		<copy todir="${basedir}/build/view">
+			<fileset dir="${basedir}/src/view"/>
+		</copy>
+		<!-- Convert css files to binary -->
+		<fx:csstobin outdir="build/view">
+			<fileset dir="build/view" includes="**/*.css"/>
+		</fx:csstobin>
+	</target>
+	
+	<target name="test" depends="compile" description="run junit tests">
+		<!-- Create the test results directory structure -->
+		<mkdir dir="${test}"/>
+		<mkdir dir="${reports}"/>
+		<!-- Execute JUnit tests and save in ${reports} -->
+		<junit printsummary="yes" haltonfailure="no"
+				failureproperty="test.failed" showoutput="yes">
+			<classpath>
+				<path refid="classpath"/>
+				<path location="${build}"/>
+				<fileset dir="${lib}">
+					<include name="**/junit.jar" />
+				</fileset>
+			</classpath>
+			<formatter type="xml"/>
+			<formatter type="plain"/>
+			<batchtest fork="yes" todir="${reports}">
+				<fileset dir="${build}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+		<fail message="Test failure detected, check test results." if="test.failed" />
+	</target>
+  
+	<target name="report" depends="test"
+			description="format junit test results">
+		<junitreport todir="${reports}">
+			<fileset dir="${reports}" includes="TEST-*.xml"/>
+			<report todir="${reports}"/>
+		</junitreport>
+		<echo></echo>
+		<echo>Report root: ${reports}/index.html</echo>
+	</target>
+	
+	<target name="dist" depends="clean, compile"
+			description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}"/>
+		<!-- Creates an executable jar file -->
+		<fx:jar destfile="dist/${title}.jar">
+			<fx:application mainClass="controller.Main"/>
+			<fx:resources>
+				<fx:fileset dir="dist" includes="lib/*.jar"/>
+			</fx:resources>
+			<fileset dir="build"/>
+		</fx:jar>
+	
+		<!-- Creates stand-alone copies of the application from the above jar
+			.exe, .msi, .html, .jnlp -->
+		<fx:deploy width="800" height="600" nativeBundles="all"
+				outdir="${basedir}/dist" outfile="${title}">
+			<fx:info title="${title}"/>
+			<fx:application name="${title}" mainClass="controller.Main"/>
+			<fx:resources>
+				<fx:fileset dir="dist" includes="${title}.jar"/>
+			</fx:resources>
+		</fx:deploy>
+	</target>
+	
+	<target name="doc" depends="init" description="generate the documentation">
+		<!-- Create the documentation directory -->
+		<mkdir dir="${doc}"/>
+		<!-- Generate the API documentation for ${src} in ${doc} -->
+		<javadoc access="public" destdir="${doc}" classpathref="classpath">
+			<fileset dir="${src}" casesensitive="yes" defaultexcludes="yes">
+				<filename name="**/*.java"/>
+			</fileset>
+			<link href="http://download.oracle.com/javase/7/docs/api/"/>
+		</javadoc>
+	</target>
+	
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} ${dist} ${doc} ${test} and ${reports} directory trees -->
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+		<delete dir="${doc}"/>
+		<delete dir="${reports}"/>
+		<delete dir="${test}"/>
+		<!-- Delete serialization test data -->
+		<delete>
+			<fileset dir=".">
+				<include name="*.ser"/>
+			</fileset>
+		</delete>
+	</target>
+</project>
