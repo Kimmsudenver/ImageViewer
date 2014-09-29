@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,12 +25,17 @@ public class ButtonController implements javafx.fxml.Initializable {
 	@FXML
 	private Button img1Clear, img2Clear, Img3Clear, textClear;
 	@FXML
-	private ImageView img1, img2, img3;
+	private ImageView img1;
+	@FXML
+	private ImageView img2;
+	@FXML
+	private ImageView img3;
 	@FXML
 	private TextArea textArea;
 
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
+
 
 	}
 
@@ -45,9 +51,12 @@ public class ButtonController implements javafx.fxml.Initializable {
 		String id = buttonClicked.getId();
 		System.out.println(id);
 		if (id.contains("img")) {
+			ImageSaveHandler handler = new ImageSaveHandler(img1);
+			handler.load(); //TODO remove after testing
 			loadImage(id, e);
+		} else {
+			loadText();
 		}
-		loadText();
 	}
 
 	/**
@@ -100,13 +109,75 @@ public class ButtonController implements javafx.fxml.Initializable {
 	}
 
 	private void loadImage(final String id, final Event e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@FXML
+	/*
+	 * I am using this method for save for the sake of continuity, but
+	 * I think each button type should have it's own method. -Guy
+	 */
 	public void saveButton(final Event e) {
+		Button buttonClicked = (Button) e.getSource();
+		String id = buttonClicked.getId();
+		ImageView current = null;
+		if (id.contains("img")) {
+			switch (id) {
+			case "img1Save":
+				current = img1;
+				break;
+			case "img2Save":
+				current = img2;
+				break;
+			case "img3Save":
+				current = img3;
+				break;
+			}
+			saveImage(current);
+		} else {
+			saveText(textArea.getText());
+		}
+	}
 
+	private void saveText(String content) {
+		SaveHandler handler = new TextSaveHandler(content);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Text");
+		textFileChooserConfiguration(fileChooser);
+		File file = fileChooser.showSaveDialog(null);
+		save(handler, file);
+	}
+
+	private void saveImage(ImageView imageView) {
+		SaveHandler handler = new ImageSaveHandler(imageView);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Image");
+		configureImageSaveDialog(fileChooser);
+		File toFile = fileChooser.showSaveDialog(null);
+		save(handler, toFile);	
+	}
+	
+	private void save(SaveHandler handler, File file) {
+		if (file != null) {
+			handler.save(file);
+		} else {
+			
+		}
+		
+	}
+
+
+
+	private void configureImageSaveDialog(final FileChooser fileChooser) {
+		fileChooser.setTitle("View Pictures");
+		fileChooser.setInitialDirectory(new File(System
+				.getProperty("user.home")));
+		fileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("All Files", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+				new FileChooser.ExtensionFilter("PNG", "*.png"),
+				new FileChooser.ExtensionFilter("BMP", "*.bmp"),
+				new FileChooser.ExtensionFilter("GIF", "*.gif"));
 	}
 
 	/**
