@@ -113,7 +113,7 @@ public class ButtonController implements javafx.fxml.Initializable {
 	 *
 	 * @param fileChooser
 	 */
-	private void textFileChooserConfiguration(FileChooser fileChooser) {
+	private void textFileChooserConfiguration(final FileChooser fileChooser) {
 		fileChooser.setTitle("Load Text File");
 		fileChooser.getExtensionFilters().addAll(
 				new FileChooser.ExtensionFilter("txt", "*.txt"),
@@ -141,7 +141,7 @@ public class ButtonController implements javafx.fxml.Initializable {
 	 * @param e
 	 */
 	@FXML
-	public void clearButton(Event e) {
+	public final void clearButton(Event e) {
 		Button buttonClicked = (Button) e.getSource();
 		String id = buttonClicked.getId();
 		switch (id) {
