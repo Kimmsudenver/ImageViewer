@@ -21,9 +21,13 @@ import javafx.stage.FileChooser;
  * Buttons controller class. interact with window for all buttons, perform
  * various functionality associated with buttons
  *
- * @author
- * @author
- * @author kim
+ * @author Paul Ankenman
+ * @author Guy Grigsby
+ * @author Eric Van Gelder
+ * @author Kiem Tech
+ * @author Will Zirin
+ * @author Aleksandr Gusan
+ * @author Kim Bui
  *
  */
 
