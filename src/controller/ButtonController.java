@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,6 +15,21 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+
+/**
+ *
+ * Buttons controller class. interact with window for all buttons, perform
+ * various functionality associated with buttons
+ *
+ * @author Paul Ankenman
+ * @author Guy Grigsby
+ * @author Eric Van Gelder
+ * @author Kiem Tech
+ * @author Will Zirin
+ * @author Aleksandr Gusan
+ * @author Kim Bui
+ *
+ */
 
 public class ButtonController implements javafx.fxml.Initializable {
 	/** Connect to Buttons for Load images in fxml file. */
@@ -118,14 +132,11 @@ public class ButtonController implements javafx.fxml.Initializable {
 	}
 
 	private void loadImage(final String id, final Event e) {
+		// TODO Auto-generated method stub
 
 	}
 
 	@FXML
-	/*
-	 * I am using this method for save for the sake of continuity, but
-	 * I think each button type should have it's own method. -Guy
-	 */
 	public void saveButton(final Event e) {
 		Button buttonClicked = (Button) e.getSource();
 		String id = buttonClicked.getId();
@@ -144,17 +155,42 @@ public class ButtonController implements javafx.fxml.Initializable {
 			}
 			saveImage(current);
 		} else {
-			saveText(textArea.getText());
+			saveText();
 		}
 	}
 
-	private void saveText(String content) {
-		SaveHandler handler = new TextSaveHandler(content);
+public void saveText() {
+		BufferedWriter writeToFile = null;
 		FileChooser fileChooser = new FileChooser();
-		textFileChooserConfiguration(fileChooser);
-		fileChooser.setTitle("Save Text");
-		File file = fileChooser.showSaveDialog(null);
-		save(handler, file);
+		File fileChosen;
+		
+		if(textArea.getText() != null &&
+		  (!textArea.getText().isEmpty())){
+			
+			fileChooser.setTitle("Save Text");
+         fileChosen = fileChooser.showSaveDialog(null);
+								
+         if (fileChosen != null) {
+				try {
+                writeToFile = new BufferedWriter( new FileWriter(fileChosen));
+    				 writeToFile.write(textArea.getText());
+				}
+				catch (IOException ex) {
+				}
+			   finally {
+   				try {
+        				if ( writeToFile != null) {
+        					writeToFile.close( );
+						}
+    				}
+    				catch ( IOException ex){
+ 					}
+				}
+			}
+		}
+		else {
+			System.out.println("No text in the text box :( !");
+		}
 	}
 
 	private void saveImage(ImageView imageView) {
@@ -190,14 +226,15 @@ public class ButtonController implements javafx.fxml.Initializable {
 	}
 
 	/**
-	 * Perform clear for multiple button events.
-	 * Clear the node associate with button
+	 * Perform clear for multiple button events. Clear the node associate with
+	 * button
+	 *
 	 * @param e
 	 */
 	@FXML
-	public void clearButton(Event e) {
+	public final void clearButton(Event e) {
 		Button buttonClicked = (Button) e.getSource();
-		String id = buttonClicked.getId();		
+		String id = buttonClicked.getId();
 		switch (id) {
 		case "img1Clear": {
 			img1 = new ImageView();
