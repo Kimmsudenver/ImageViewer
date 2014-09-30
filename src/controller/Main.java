@@ -23,13 +23,14 @@ import javafx.stage.Stage;
  *
  */
 public class Main extends Application {
+	
+	private static Main INSTANCE;
 
 	/** Main stage. */
 	private Stage primaryStage;
 	/** Window container. */
 	private Parent rootLayout;
 	@FXML
-	private Button img1Load;
 
 	/**
 	 * Display the window. Performed at the start of application
@@ -38,6 +39,7 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage stage) {
+		INSTANCE = this;
 		this.primaryStage = stage;
 		this.primaryStage.setTitle("Images Viewer");
 
@@ -61,5 +63,13 @@ public class Main extends Application {
 	 */
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public Stage getStage() {
+		return primaryStage;
+	}
+	
+	public static Main getInstance() {
+		return INSTANCE;
 	}
 }

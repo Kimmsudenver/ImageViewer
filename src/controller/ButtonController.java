@@ -1,9 +1,11 @@
 package controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -75,8 +77,9 @@ public class ButtonController implements javafx.fxml.Initializable {
 		System.out.println(id);
 		if (id.contains("img")) {
 			loadImage(id, e);
+		} else {
+			loadText();
 		}
-		loadText();
 	}
 
 	/**
@@ -117,8 +120,10 @@ public class ButtonController implements javafx.fxml.Initializable {
 	 *
 	 * @param fileChooser
 	 */
-	private void textFileChooserConfiguration(final FileChooser fileChooser) {
+	private void textFileChooserConfiguration(FileChooser fileChooser) {
 		fileChooser.setTitle("Load Text File");
+		fileChooser.setInitialDirectory(new File(System
+				.getProperty("user.home")));
 		fileChooser.getExtensionFilters().addAll(
 				new FileChooser.ExtensionFilter("txt", "*.txt"),
 				new FileChooser.ExtensionFilter("Doc", "*.doc"),
@@ -137,13 +142,26 @@ public class ButtonController implements javafx.fxml.Initializable {
 	public void saveButton(final Event e) {
 		Button buttonClicked = (Button) e.getSource();
 		String id = buttonClicked.getId();
-		System.out.println(id);
-		if (id.contains("text")) {
+		ImageView current = null;
+		if (id.contains("img")) {
+			switch (id) {
+			case "img1Save":
+				current = img1;
+				break;
+			case "img2Save":
+				current = img2;
+				break;
+			case "img3Save":
+				current = img3;
+				break;
+			}
+			saveImage(current);
+		} else {
 			saveText();
 		}
 	}
-	
-	public void saveText() {
+
+public void saveText() {
 		BufferedWriter writeToFile = null;
 		FileChooser fileChooser = new FileChooser();
 		File fileChosen;
@@ -175,6 +193,38 @@ public class ButtonController implements javafx.fxml.Initializable {
 		else {
 			System.out.println("No text in the text box :( !");
 		}
+	}
+
+	private void saveImage(ImageView imageView) {
+		SaveHandler handler = new ImageSaveHandler(imageView);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Image");
+		configureImageSaveDialog(fileChooser);
+		File toFile = fileChooser.showSaveDialog(null);
+		save(handler, toFile);	
+	}
+	
+	private void save(SaveHandler handler, File file) {
+		if (file != null) {
+			handler.save(file);
+		} else {
+			//TODO display error
+		}
+		
+	}
+
+
+
+	private void configureImageSaveDialog(final FileChooser fileChooser) {
+		fileChooser.setTitle("View Pictures");
+		fileChooser.setInitialDirectory(new File(System
+				.getProperty("user.home")));
+		fileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("All Files", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+				new FileChooser.ExtensionFilter("PNG", "*.png"),
+				new FileChooser.ExtensionFilter("BMP", "*.bmp"),
+				new FileChooser.ExtensionFilter("GIF", "*.gif"));
 	}
 
 	/**

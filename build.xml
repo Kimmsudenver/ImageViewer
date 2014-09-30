@@ -14,6 +14,7 @@
 	<property name="test" location="test"/>
 	<property name="reports" location="${test}/reports"/>
 	<property name="lib" location="lib"/>
+	<property name="img" location="img"/>
 	
 	<!-- Set name of project to be used in distributions -->
 	<property name="title" value="ImageViewer"/>
@@ -58,6 +59,7 @@
 			<classpath>
 				<path refid="classpath"/>
 				<path location="${build}"/>
+				<path location="${img}"/>
 				<fileset dir="${lib}">
 					<include name="**/junit.jar" />
 				</fileset>
