@@ -17,7 +17,7 @@ public class ImageSaveHandlerTest {
 	@Before
 	public void setUp() throws Exception {
 		new JFXPanel(); // Initializes the JavaFx Platform
-        final Image image = new Image(getClass().getResourceAsStream("cow.JPG"));
+        final Image image = new Image(getClass().getResourceAsStream("../../img/cow.JPG"));
 		handler = new ImageSaveHandler(image); 
 	}
 
