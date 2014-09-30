@@ -60,8 +60,6 @@ public class ButtonController implements javafx.fxml.Initializable {
 		String id = buttonClicked.getId();
 		System.out.println(id);
 		if (id.contains("img")) {
-			ImageSaveHandler handler = new ImageSaveHandler(img1);
-			handler.load(); //TODO remove after testing
 			loadImage(id, e);
 		} else {
 			loadText();
@@ -108,6 +106,8 @@ public class ButtonController implements javafx.fxml.Initializable {
 	 */
 	private void textFileChooserConfiguration(FileChooser fileChooser) {
 		fileChooser.setTitle("Load Text File");
+		fileChooser.setInitialDirectory(new File(System
+				.getProperty("user.home")));
 		fileChooser.getExtensionFilters().addAll(
 				new FileChooser.ExtensionFilter("txt", "*.txt"),
 				new FileChooser.ExtensionFilter("Doc", "*.doc"),
@@ -151,8 +151,8 @@ public class ButtonController implements javafx.fxml.Initializable {
 	private void saveText(String content) {
 		SaveHandler handler = new TextSaveHandler(content);
 		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Save Text");
 		textFileChooserConfiguration(fileChooser);
+		fileChooser.setTitle("Save Text");
 		File file = fileChooser.showSaveDialog(null);
 		save(handler, file);
 	}
@@ -170,7 +170,7 @@ public class ButtonController implements javafx.fxml.Initializable {
 		if (file != null) {
 			handler.save(file);
 		} else {
-			
+			//TODO display error
 		}
 		
 	}

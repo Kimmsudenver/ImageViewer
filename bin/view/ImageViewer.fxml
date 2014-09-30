@@ -38,8 +38,14 @@
             <ImageView id="img1" fx:id="img1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
-      <StackPane layoutX="236.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
-      <StackPane layoutX="443.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;" />
+      <StackPane layoutX="236.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;">
+         <children>
+            <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children></StackPane>
+      <StackPane layoutX="443.0" layoutY="44.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ccc; -fx-border-color: #aaa;">
+         <children>
+            <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children></StackPane>
       <Pane layoutX="248.0" layoutY="203.0">
          <children>
             <Button id="img2Load" fx:id="img2Load" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#loadButton" prefHeight="36.0" prefWidth="55.0" text="Load" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="605.0">
