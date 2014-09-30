@@ -8,14 +8,35 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * JavaFx application for image and text. Functionalities include load, save,
+ * clear
+ *
+ * @author Paul Ankenman
+ * @author Guy Grigsby
+ * @author Eric Van Gelder
+ * @author Kiem Tech
+ * @author Will Zirin
+ * @author Aleksandr Gusan
+ * @author Kim Bui
+ *
+ *
+ */
 public class Main extends Application {
 	
 	private static Main INSTANCE;
 
+	/** Main stage. */
 	private Stage primaryStage;
+	/** Window container. */
 	private Parent rootLayout;
 	@FXML
 
+	/**
+	 * Display the window. Performed at the start of application
+	 *
+	 * @param stage
+	 */
 	@Override
 	public void start(Stage stage) {
 		INSTANCE = this;
@@ -35,6 +56,11 @@ public class Main extends Application {
 
 	}
 
+	/**
+	 * Main method. Activate the start method
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

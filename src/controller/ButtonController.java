@@ -18,24 +18,33 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
 public class ButtonController implements javafx.fxml.Initializable {
+	/** Connect to Buttons for Load images in fxml file. */
 	@FXML
-	private Button img1Load, img2Load, img3Load;
+	private Button img1Load, img2Load, img3Load, textLoad;
+
+	/** Connect to Buttons for save images in fxml file. */
 	@FXML
-	private Button img1Save, img2Save, img3Save;
+	private Button img1Save, img2Save, img3Save, textSave;
+
+	/**
+	 * Connect to Buttons for clear images and text field in fxml file.
+	 * */
 	@FXML
 	private Button img1Clear, img2Clear, Img3Clear, textClear;
+
+	/** Connect to imageView in fxml file. */
 	@FXML
-	private ImageView img1;
-	@FXML
-	private ImageView img2;
-	@FXML
-	private ImageView img3;
+	private ImageView img1, img2, img3;
+
+	/** Connect to text field in fxml file. */
 	@FXML
 	private TextArea textArea;
 
+	/**
+	 * Required method to initialize. the controller
+	 */
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
-
 
 	}
 
