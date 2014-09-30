@@ -135,7 +135,46 @@ public class ButtonController implements javafx.fxml.Initializable {
 
 	@FXML
 	public void saveButton(final Event e) {
-
+		Button buttonClicked = (Button) e.getSource();
+		String id = buttonClicked.getId();
+		System.out.println(id);
+		if (id.contains("text")) {
+			saveText();
+		}
+	}
+	
+	public void saveText() {
+		BufferedWriter writeToFile = null;
+		FileChooser fileChooser = new FileChooser();
+		File fileChosen;
+		
+		if(textArea.getText() != null &&
+		  (!textArea.getText().isEmpty())){
+			
+			fileChooser.setTitle("Save Text");
+         fileChosen = fileChooser.showSaveDialog(null);
+								
+         if (fileChosen != null) {
+				try {
+                writeToFile = new BufferedWriter( new FileWriter(fileChosen));
+    				 writeToFile.write(textArea.getText());
+				}
+				catch (IOException ex) {
+				}
+			   finally {
+   				try {
+        				if ( writeToFile != null) {
+        					writeToFile.close( );
+						}
+    				}
+    				catch ( IOException ex){
+ 					}
+				}
+			}
+		}
+		else {
+			System.out.println("No text in the text box :( !");
+		}
 	}
 
 	/**
